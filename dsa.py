@@ -13,7 +13,7 @@ class LinkedList:
         print("NULL")
     def insert(self,new_data):
         new_node=Node(new_data)
-        new_node.next=self.head
+        new_node.next=self.headm 
         self.head=new_node
     def del_second_node(self):
         temp=self.head
