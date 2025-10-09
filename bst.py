@@ -47,7 +47,22 @@ class BT:
         lh=self.findheight(root.left)
         rh=self.findheight(root.right)
         return 1+ max(lh,rh)
-
+    def check_cbt(self,root):
+        if root is None:
+            return True
+        fal=False
+        queue=[root]
+        while queue:
+            node=queue.pop(0)
+            if node:
+                if node:
+                    if fal:
+                        return False
+                    queue.append(root.left)
+                    queue.append(root.right)
+                else:
+                    fal=True
+                return True
 if __name__=="__main__":
     tree = BT(1)
     tree.root.left = Node(2)
