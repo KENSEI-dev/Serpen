@@ -18,26 +18,23 @@ def selection_sort(a,size):
             a[max_idx]=a[i]
             a[i]=temp
     return a
-def quick_sort(a,low,high):
-    if low<high:
-        pivot_idx=partition(a,low,high)
-    quick_sort(a,low,pivot_idx-1)
-    quick_sort(a,pivot_idx+1,high)
-def partition(a,low,high):
-    pivot=a[high]
-    i=low-1
-    for j in range(low,high-1):
-        if a[j]>pivot:
-            i+=1
-        else:
-            if a[i]>a[j]:
-                temp=a[j]
-                a[j]=a[i]
-                a[i]=temp
-    temp=a[i+1]
-    a[i+1]=a[high]
-    a[high]=temp
-    return i+1
+def lamuto (arr, low, high):
+
+    if low>=high:
+        return
+    pivot=arr[high]
+    j=low
+
+    for i in range(low,high):
+         if (arr[i]<=pivot):
+             arr[i],arr[j]=arr[j],arr[i]
+             j+=1
+
+    arr[high], arr[j]=arr[j],arr[high]
+    lamuto (arr, low,j-1)
+    lamuto (arr,j+1,high)
+
+    return arr
 
 def linearSearch(a,size,s):
     for i in range(size):
@@ -75,3 +72,5 @@ pos=linearSearch(a,size,search_ele)
 if pos!=-1:
     print(f"Element found at {pos+1} position")
 '''
+test=[5,3,6,4,7,3,2,1,8]
+print(lamuto(test, 0,len(test)-1))
