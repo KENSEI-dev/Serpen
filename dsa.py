@@ -27,3 +27,4 @@ for value in [10,20,30,40]:
 ll.traverse()
 ll.del_second_node()
 ll.traverse()
+
